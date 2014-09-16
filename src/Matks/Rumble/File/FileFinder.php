@@ -62,7 +62,7 @@ class FileFinder implements FileFinderInterface
 		$results = array();
 
 		foreach ($this->finder as $result) {
-			$results[] = $result;
+			$results[] = $result->getRealPath();
 		}
 		return $results;
 	}

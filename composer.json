@@ -21,7 +21,7 @@
         "symfony/yaml": "~2.0",
         "symfony/dom-crawler": "~2.0",
         "symfony/filesystem": "~2.0",
-        "symfony/finder": "~2.0",
+        "symfony/finder": "~2.0"
     },
     "require-dev": {
         "atoum/atoum" : "dev-master"

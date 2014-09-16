@@ -1,0 +1,12 @@
+title: Misc
+
+form:
+  actions:
+    search: Search
+    reset: Reset form
+    add: Add
+
+  columns:
+    lol-info: Lol Info
+    traffic-info: Traffic Info
+    end-grade: End Grade

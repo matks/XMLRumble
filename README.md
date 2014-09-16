@@ -3,10 +3,28 @@ XMLRumble
 
 This buddy will find all XML translation files in your Symfony2 project and convert them into YAML.
 
-Running Rumble
---------------
+## Installation
+
+Install the dependencies with composer
+```bash
+composer install
+```
+
+## Tests
+
+Install the dev dependencies with composer
+```bash
+composer install --dev
+```
+
+Run the unit tests suite with atoum binary.
+```bash
+vendor/bin/atoum -bf vendor/autoload.php -d tests/Units/
+```
+
+## Running Rumble
 
 Run the following command:
 ```bash
-$ php rumble
+$ php rumble <target directory>
 ```
