@@ -1,0 +1,39 @@
+{
+    "name": "matks/xmlrumble",
+    "description": "Xml to Yaml buddy translator",
+    "type": "library",
+    "keywords": [
+        "xml",
+        "yaml",
+        "converter"
+    ],
+    "homepage": "https://github.com/matks/XMLRumble",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Mathieu Ferment",
+            "email": "mathieu.ferment@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/yaml": "~2.0",
+        "symfony/dom-crawler": "~2.0",
+        "symfony/filesystem": "~2.0",
+        "symfony/finder": "~2.0",
+    },
+    "require-dev": {
+        "atoum/atoum" : "dev-master"
+    },
+    "autoload": {
+        "psr-0" : {
+            "Matks\\Rumble" : "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
