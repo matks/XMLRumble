@@ -1,6 +1,6 @@
 <?php
 
-namespace Matks\Rumble\Tests\Units\Xliff;
+namespace Matks\Rumble\tests\Units\Xliff;
 
 use Matks\Rumble\Xliff;
 
@@ -43,10 +43,9 @@ class XliffReader extends atoum
         $reader = new Xliff\XliffReader();
         $filepath = 'nowhere';
 
-        
         $this
             ->exception(
-                function() use($reader, $filepath) {
+                function () use ($reader, $filepath) {
                     $result = $reader->extractTranslationData($filepath);
                 }
             )->hasMessage('No file at nowhere')
@@ -56,7 +55,7 @@ class XliffReader extends atoum
 
         $this
             ->exception(
-                function() use($reader, $filepath) {
+                function () use ($reader, $filepath) {
                     $result = $reader->extractTranslationData($filepath);
                 }
             )->hasMessage('Node missing required attribute')
@@ -66,7 +65,7 @@ class XliffReader extends atoum
 
         $this
             ->exception(
-                function() use($reader, $filepath) {
+                function () use ($reader, $filepath) {
                     $result = $reader->extractTranslationData($filepath);
                 }
             )->hasMessage('Node a.b.e missing required child')

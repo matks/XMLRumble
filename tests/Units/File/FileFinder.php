@@ -1,11 +1,10 @@
 <?php
 
-namespace Matks\Rumble\Tests\Units\File;
+namespace Matks\Rumble\tests\Units\File;
 
 use Matks\Rumble\File;
 
 use \atoum;
- 
 
 class FileFinder extends atoum
 {
@@ -40,10 +39,10 @@ class FileFinder extends atoum
     public function testFindFilesWithExtensionBadArguments()
     {
         $finder = new File\FileFinder();
-        
+
         $this
             ->exception(
-                function() use($finder) {
+                function () use ($finder) {
                     $result = $finder->findFilesWithExtension('lol', array(1));
                 }
             )->hasMessage('Extension expected to be a string')
@@ -51,7 +50,7 @@ class FileFinder extends atoum
 
         $this
             ->exception(
-                function() use($finder) {
+                function () use ($finder) {
                     $result = $finder->findFilesWithExtension('lol', '.xliff');
                 }
             )->hasMessage("Dots '.' are not allowed in extension")
@@ -59,7 +58,7 @@ class FileFinder extends atoum
 
         $this
             ->exception(
-                function() use($finder) {
+                function () use ($finder) {
                     $result = $finder->findFilesWithExtension('lol', 'xliff');
                 }
             )->hasMessage('Not a directory: lol')

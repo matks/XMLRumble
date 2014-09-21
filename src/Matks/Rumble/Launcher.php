@@ -13,55 +13,55 @@ use Exception;
  */
 class Launcher
 {
-	const CONFIGURATION_KEY_DIRECTORY = 'directoryPath';
+    const CONFIGURATION_KEY_DIRECTORY = 'directoryPath';
 
-	/**
+    /**
 	 * Main function
 	 * @param array $configuration
 	 */
-	public static function main($configuration = null)
-	{
-		self::validateConfiguration($configuration);
-		$rumble = self::setup($configuration);
+    public static function main($configuration = null)
+    {
+        self::validateConfiguration($configuration);
+        $rumble = self::setup($configuration);
 
-		$rumble->run();
-	}
+        $rumble->run();
+    }
 
-	/**
+    /**
 	 * Construct Rumble instance
 	 * @param array $configuration
 	 * @return Rumble
 	 */
-	private static function setup($configuration)
-	{
-		$directoryPath = $configuration[self::CONFIGURATION_KEY_DIRECTORY];
+    private static function setup($configuration)
+    {
+        $directoryPath = $configuration[self::CONFIGURATION_KEY_DIRECTORY];
 
-		$finder = new FileFinder();
-		$xmlReader = new XMLReader();
-		$rumble = new Rumble($finder, $xmlReader, $directoryPath);
+        $finder = new FileFinder();
+        $xmlReader = new XMLReader();
+        $rumble = new Rumble($finder, $xmlReader, $directoryPath);
 
-		return $rumble;
-	}
+        return $rumble;
+    }
 
-	/**
+    /**
 	 * Validate configuration array
 	 * @param  array $configuration
 	 * @throws Exception
 	 */
-	private static function validateConfiguration($configuration)
-	{
-		if (!is_array($configuration)) {
-			throw new Exception("Configuration must be an array");
-		}
+    private static function validateConfiguration($configuration)
+    {
+        if (!is_array($configuration)) {
+            throw new Exception("Configuration must be an array");
+        }
 
-		$configurationKeys = array(
-			self::CONFIGURATION_KEY_DIRECTORY
-		);
+        $configurationKeys = array(
+            self::CONFIGURATION_KEY_DIRECTORY
+        );
 
-		foreach ($configurationKeys as $requiredKey) {
-			if (!array_key_exists($requiredKey, $configuration)) {
-				throw new Exception("Configuration not valid");
-			}
-		}
-	}
+        foreach ($configurationKeys as $requiredKey) {
+            if (!array_key_exists($requiredKey, $configuration)) {
+                throw new Exception("Configuration not valid");
+            }
+        }
+    }
 }

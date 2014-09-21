@@ -1,12 +1,11 @@
 <?php
 
-namespace Matks\Rumble\Tests\Units;
+namespace Matks\Rumble\tests\Units;
 
 use Matks\Rumble as RumbleNamespace;
 
-use Mock; 
+use Mock;
 use \atoum;
- 
 
 class Rumble extends atoum
 {
