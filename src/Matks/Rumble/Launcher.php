@@ -3,7 +3,7 @@
 namespace Matks\Rumble;
 
 use Matks\Rumble\File\FileFinder;
-use Matks\Rumble\Rumble;
+use Matks\Rumble\Xml\XmlReader;
 use Exception;
 
 /**
@@ -37,7 +37,8 @@ class Launcher
 		$directoryPath = $configuration[self::CONFIGURATION_KEY_DIRECTORY];
 
 		$finder = new FileFinder();
-		$rumble = new Rumble($finder, $directoryPath);
+		$xmlReader = new XMLReader();
+		$rumble = new Rumble($finder, $xmlReader, $directoryPath);
 
 		return $rumble;
 	}

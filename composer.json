@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/yaml": "~2.0",
-        "symfony/dom-crawler": "~2.0",
+        "suramon/simple-xml-reader": "dev-master",
         "symfony/filesystem": "~2.0",
         "symfony/finder": "~2.0"
     },

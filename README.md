@@ -1,7 +1,7 @@
 XMLRumble
 =========
 
-This buddy will find all XML translation files in your Symfony2 project and convert them into YAML.
+This buddy will find all XLIFF translation files in your Symfony2 project and convert them into YAML.
 
 ## Installation
 

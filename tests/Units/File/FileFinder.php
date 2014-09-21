@@ -24,7 +24,7 @@ class FileFinder extends atoum
 
         $this
             ->array($result)
-                ->hasSize(1)
+                ->hasSize(3)
         ;
 
         // trying to guess result with regex

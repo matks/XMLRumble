@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2012-01-06T10:17:56Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.0.0-DEV"/>
+    </header>
+    <body>
+      <trans-unit id="0" resname="a.b.c">
+        <source>a.b.c</source>
+        <target state="new">Foo</target>
+      </trans-unit>
+      <trans-unit id="2" resname="a.b.e">
+        <source>a.b.e</source>
+      </trans-unit>
+      <trans-unit id="3" resname="a.d">
+        <source>a.d</source>
+        <target state="new">ABC</target>
+      </trans-unit>
+      <trans-unit id="4" resname="aa.aaa">
+        <source>aa.aaa</source>
+        <target state="new">Design</target>
+      </trans-unit>
+      <trans-unit id="3" resname="c">
+        <source>c</source>
+        <target state="new">Title</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
