@@ -10,8 +10,11 @@ class XliffReader extends atoum
 {
     public function testConstruct()
     {
-        // just check that the instance can be created without problems
         $reader = new Xliff\XliffReader();
+        $this
+            ->class(get_class($reader))
+                ->hasInterface('\Matks\Rumble\Xliff\XliffReaderInterface')
+        ;
     }
 
     public function testExtractTranslationData()

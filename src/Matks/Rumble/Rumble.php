@@ -39,7 +39,10 @@ class Rumble
                 $this->convertFile($filepath);
                 $processedFiles[] = $filepath;
             } catch (Exception $e) {
-                $errors[] = array('file' => $filepath, 'message' => $e->getMessage());
+                $errors[] = array(
+                    'file' => $filepath,
+                    'message' => $e->getMessage()
+                );
             }
         }
 
@@ -56,7 +59,7 @@ class Rumble
     {
         $list = $this->finder->findFilesWithExtension(
             $this->targetDirectory,
-            self::SYMFONY2_TRANSLATION_FILES_EXTENSION
+            static::SYMFONY2_TRANSLATION_FILES_EXTENSION
         );
 
         return $list;
@@ -64,7 +67,7 @@ class Rumble
 
     private function convertFile($filepath)
     {
-
+        $xmlNodeAsArray = $this->xliffReader->extractTranslationData($filepath);
     }
 
     private function outputResult(array $processedFiles, array $errors, DateTime $beginProcessingDate, DateTime $endProcessingDate)

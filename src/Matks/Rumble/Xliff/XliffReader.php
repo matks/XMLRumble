@@ -32,7 +32,7 @@ class XliffReader implements XliffReaderInterface
         $xmlAsString = file_get_contents($filepath);
         $xml = SimpleXmlReader\SimpleXmlReader::openFromString($xmlAsString);
 
-        $translationNodes = $xml->path(self::TRANSLATION_NODE_XPATH);
+        $translationNodes = $xml->path(static::TRANSLATION_NODE_XPATH);
 
         $extractedNodeData = array();
 
@@ -83,7 +83,7 @@ class XliffReader implements XliffReaderInterface
 	 */
     private function convertResnameIntoArrayKey($resname)
     {
-        $levels = explode(self::RESNAME_DELIMITER, $resname);
+        $levels = explode(static::RESNAME_DELIMITER, $resname);
 
         return $levels;
     }
@@ -95,7 +95,7 @@ class XliffReader implements XliffReaderInterface
 	 * @param string $value
 	 * @param array $array
 	 */
-    public function addNodeIntoResultArray($keys, $value, $array)
+    private function addNodeIntoResultArray($keys, $value, $array)
     {
         $newArray = $this->buildNodeArray($keys, $value);
         $combinedArray = array_merge_recursive($newArray, $array);

@@ -10,13 +10,16 @@ class FileFinder extends atoum
 {
     public function testConstruct()
     {
-        // just check that the instance can be created without problems
         $finder = new File\FileFinder();
+        $this
+            ->class(get_class($finder))
+                ->hasInterface('\Matks\Rumble\File\FileFinderInterface')
+        ;
     }
 
     public function testFindFilesWithExtension()
     {
-        $targetFolder = __DIR__.'/../../data/';
+        $targetFolder = __DIR__.'/../../data/unit_test';
 
         $finder = new File\FileFinder();
         $result = $finder->findFilesWithExtension($targetFolder, 'xliff');

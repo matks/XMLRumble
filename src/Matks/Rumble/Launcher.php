@@ -3,7 +3,7 @@
 namespace Matks\Rumble;
 
 use Matks\Rumble\File\FileFinder;
-use Matks\Rumble\Xml\XmlReader;
+use Matks\Rumble\Xliff\XliffReader;
 use Exception;
 
 /**
@@ -21,8 +21,11 @@ class Launcher
 	 */
     public static function main($configuration = null)
     {
+        // just for tests
+        date_default_timezone_set('UTC');
+
         self::validateConfiguration($configuration);
-        $rumble = self::setup($configuration);
+        $rumble = static::setup($configuration);
 
         $rumble->run();
     }
@@ -34,10 +37,10 @@ class Launcher
 	 */
     private static function setup($configuration)
     {
-        $directoryPath = $configuration[self::CONFIGURATION_KEY_DIRECTORY];
+        $directoryPath = $configuration[static::CONFIGURATION_KEY_DIRECTORY];
 
         $finder = new FileFinder();
-        $xmlReader = new XMLReader();
+        $xmlReader = new XliffReader();
         $rumble = new Rumble($finder, $xmlReader, $directoryPath);
 
         return $rumble;
@@ -55,7 +58,7 @@ class Launcher
         }
 
         $configurationKeys = array(
-            self::CONFIGURATION_KEY_DIRECTORY
+            static::CONFIGURATION_KEY_DIRECTORY
         );
 
         foreach ($configurationKeys as $requiredKey) {
