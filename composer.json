@@ -27,7 +27,8 @@
     },
     "autoload": {
         "psr-0" : {
-            "Matks\\Rumble" : "src/"
+            "Matks\\Rumble" : "src/",
+            "Matks\\RumbleTest" : "tests/Functional/"
         }
     },
     "extra": {

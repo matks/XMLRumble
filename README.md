@@ -22,6 +22,11 @@ Run the unit tests suite with atoum binary.
 vendor/bin/atoum -bf vendor/autoload.php -d tests/Units/
 ```
 
+Run the functional tests.
+```bash
+rumble-functional-test
+```
+
 ## Running Rumble
 
 Run the following command:

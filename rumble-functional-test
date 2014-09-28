@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+$autoloadFile = 'vendor/autoload.php';
+if (file_exists($autoloadFile)) {
+    define('AUTOLOAD_COMPOSER_INSTALL', $autoloadFile);
+} else {
+	die("Error: could not find autoload file");
+}
+
+require AUTOLOAD_COMPOSER_INSTALL;
+
+$testDirectory = Matks\RumbleTest\RumbleTest::getTestDirectory();
+$configuration = array(Matks\Rumble\Launcher::CONFIGURATION_KEY_DIRECTORY => $testDirectory);
+
+Matks\Rumble\Launcher::main($configuration);
+Matks\RumbleTest\RumbleTest::checkResults();
+Matks\RumbleTest\Cleaner::cleanTestDirectory();

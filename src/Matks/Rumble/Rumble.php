@@ -43,11 +43,10 @@ class Rumble
         $beginProcessingDate = new DateTime('now');
 
         $fileList = $this->getTargetFileList();
+        $errors = [];
+        $processedFiles = [];
 
         foreach ($fileList as $filepath) {
-
-            $errors = [];
-            $processedFiles = [];
 
             try {
                 $this->convertFile($filepath);
@@ -61,6 +60,7 @@ class Rumble
         }
 
         $endProcessingDate = new DateTime('now');
+
         $this->outputResult(
             $processedFiles,
             $errors,
@@ -93,6 +93,7 @@ class Rumble
     {
         $xmlNodeAsArray = $this->xliffReader->extractTranslationData($filepath);
         $yamlFilepath = Tools::computeYamlFilepath($filepath);
+        $this->yamlWriter->writeYamlFile($xmlNodeAsArray, $yamlFilepath);
     }
 
     /**
@@ -105,13 +106,15 @@ class Rumble
      */
     private function outputResult(array $processedFiles, array $errors, DateTime $beginProcessingDate, DateTime $endProcessingDate)
     {
+        echo "\033[32mXML RUMBLE REPORT: \033[0m".PHP_EOL;
+
         foreach ($processedFiles as $filepath) {
-            echo 'Done: '.$filepath.PHP_EOL;
+            echo '  * Done: '.$filepath.PHP_EOL;
         }
 
         foreach ($errors as $error) {
-            echo 'Failed: '.$error['file'].PHP_EOL;
-            echo '~-> catched "'.$error['message'].'"'.PHP_EOL;
+            echo '  * Failed: '.$error['file'].PHP_EOL;
+            echo '    ~-> catched "'.$error['message'].'"'.PHP_EOL;
         }
     }
 }

@@ -22,9 +22,6 @@ class Launcher
 	 */
     public static function main($configuration = null)
     {
-        // just for tests
-        date_default_timezone_set('UTC');
-
         self::validateConfiguration($configuration);
         $rumble = static::setup($configuration);
 

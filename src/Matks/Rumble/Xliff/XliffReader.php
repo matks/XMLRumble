@@ -20,6 +20,7 @@ class XliffReader implements XliffReaderInterface
 	 *
 	 * @param  string $filepath       absolute file path
 	 * @return array
+     *
 	 * @throws XliffNotValidException
 	 *
 	 */

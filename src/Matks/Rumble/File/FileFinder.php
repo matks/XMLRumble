@@ -19,6 +19,7 @@ class FileFinder implements FileFinderInterface
 
     /**
 	 * Find all files having the given extension
+     *
 	 * @param  string $directory
 	 * @param  string $extension
 	 * @return array
@@ -38,6 +39,7 @@ class FileFinder implements FileFinderInterface
 
     /**
 	 * Validate input
+     *
 	 * @param  string $directory
 	 * @param  string $extension
 	 * @throws Exception
@@ -57,6 +59,11 @@ class FileFinder implements FileFinderInterface
         }
     }
 
+    /**
+     * Extract filepaths from finder results
+     *
+     * @return array
+     */
     private function getFinderResult()
     {
         $results = array();

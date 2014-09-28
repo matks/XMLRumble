@@ -22,12 +22,24 @@ class YamlWriter implements YamlWriterInterface
         $this->dumper = new Dumper();
     }
 
-    public function writeYamlFile($dataNode, $filepath)
+    /**
+     * Write given data into yaml-formatted file
+     *
+     * @param array  $dataNode
+     * @param string $filepath
+     */
+    public function writeYamlFile(array $dataNode, $filepath)
     {
         $this->validateFile($filepath);
         $this->writeFile($dataNode, $filepath);
     }
 
+    /**
+     * Validate given filepath
+     *
+     * @param  string    $filepath
+     * @throws Exception
+     */
     private function validateFile($filepath)
     {
         if (file_exists($filepath)) {
@@ -39,6 +51,12 @@ class YamlWriter implements YamlWriterInterface
         }
     }
 
+    /**
+     * Write yaml file
+     *
+     * @param array  $data
+     * @param string $filepath
+     */
     private function writeFile(array $data, $filepath)
     {
         $yaml = $this->dumper->dump($data, static::YAML_EXPANSION_LEVEL);
