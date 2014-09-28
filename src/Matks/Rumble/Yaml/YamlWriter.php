@@ -7,8 +7,6 @@ use Exception;
 
 class YamlWriter implements YamlWriterInterface
 {
-    const YAML_FILES_EXTENSION = 'yml';
-
     /**
 	 * @see http://symfony2-document.readthedocs.org/en/latest/components/yaml.html#id13
 	 */
@@ -36,7 +34,7 @@ class YamlWriter implements YamlWriterInterface
             throw new Exception("$filepath already exists");
         }
 
-        if (!preg_match('#.'.static::YAML_FILES_EXTENSION.'#', $filepath)) {
+        if (!preg_match('#.'.YamlWriterInterface::YAML_FILES_EXTENSION.'#', $filepath)) {
             throw new Exception("$filepath has no .yml extension");
         }
     }

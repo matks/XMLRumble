@@ -4,6 +4,7 @@ namespace Matks\Rumble;
 
 use Matks\Rumble\File\FileFinder;
 use Matks\Rumble\Xliff\XliffReader;
+use Matks\Rumble\Yaml\YamlWriter;
 use Exception;
 
 /**
@@ -41,7 +42,8 @@ class Launcher
 
         $finder = new FileFinder();
         $xmlReader = new XliffReader();
-        $rumble = new Rumble($finder, $xmlReader, $directoryPath);
+        $yamlWriter = new YamlWriter();
+        $rumble = new Rumble($finder, $xmlReader, $yamlWriter, $directoryPath);
 
         return $rumble;
     }
